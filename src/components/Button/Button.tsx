@@ -16,31 +16,34 @@ const StyledButton = styled.button<{
 }>(
   ({ clear, large, round, withIcon, theme: { color, boxShadow, borderRadius } }) => css`
     outline: none;
-    border: 0;
+    border: 10px solid pink;
     font-family: 'Hind';
     border-radius: ${round ? borderRadius.xl : borderRadius.xs};
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: ${withIcon ? '0.7rem' : large ? '1.125rem 1rem' : '0.875rem 1rem'};
-    color: ${clear ? color.primaryText : color.buttonText};
+    color: ${clear ? '#e5e0e0' : '#c4c2c1'};
 
-    transition: box-shadow 150ms ease-in;
+    transition: none;
     z-index: 1;
-    background-color: ${clear ? color.buttonClear : color.buttonPrimary};
+    background-color: ${clear ? '#f5f5f4' : '#d3d0cf'};
 
     &:hover {
       cursor: pointer;
-      background-color: ${clear ? color.buttonClearHover : color.buttonPrimaryHover};
+      background-color: ${clear ? '#f8f7f7' : '#dbdad9'};
     }
 
     &:focus {
-      box-shadow: ${boxShadow.outerBorder};
+      /* Removing focus indicator for poor accessibility */
+      box-shadow: none;
+      outline: none;
     }
 
     &:disabled {
-      background-color: ${clear ? color.buttonClear : color.buttonPrimary};
-      opacity: 0.4;
+      background-color: ${clear ? '#f0f0f0' : '#dadada'};
+      opacity: 0.9;
+      color: #c8c8c8;
     }
 
     @media ${breakpoints.M} {
